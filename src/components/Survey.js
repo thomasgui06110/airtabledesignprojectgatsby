@@ -26,7 +26,7 @@ const Survey = () => {
     const tempItems = [...items].map(item => {
       if (item.id === id) {
         let { id, fields } = item
-        fields = { ...fields, votes: fields.votes + 1 }
+        fields = { ...fields, Notes: fields.Notes + 1 }
         return { id, fields }
       } else {
         return item
@@ -60,7 +60,7 @@ const Survey = () => {
             {items.map(item => {
               const {
                 id,
-                fields: { name, votes },
+                fields: { name, Notes },
               } = item
               return (
                 <li key={id}>
@@ -69,7 +69,7 @@ const Survey = () => {
                   </div>
                   <div>
                     <h4>{name}</h4>
-                    <p>{votes} votes</p>
+                    <p>{Notes} votes</p>
                   </div>
                   <button onClick={() => giveVote(id)}>
                     <FaVoteYea />
